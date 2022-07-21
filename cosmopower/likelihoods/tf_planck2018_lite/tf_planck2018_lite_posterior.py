@@ -9,7 +9,7 @@ import tensorflow_probability as tfp
 import tensorflow as tf
 import cosmopower as cp
 
-class tf_planck2018_lite:
+class tf_planck2018_lite_posterior:
     '''
     TensorFlow version of Planck's plik-lite likelihood.
     Adapted from H. Prince and J. Dunkley's [planck-lite-py](https://github.com/heatherprince/planck-lite-py).
