@@ -1,1 +1,1 @@
-from .tf_planck2018_lite import tf_planck2018_lite, tf_planck2018_lite_posterior
+from .tf_planck2018_lite import *
