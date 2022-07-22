@@ -310,8 +310,8 @@ class tf_planck2018_lite_posterior:
         #!not sure about the dimesion, so not sure about the correct function to 
         # calculate the mean
 
-        fisher = get_inverse_covmat(self)
-        Cov = np.linalg.inv(fisher)
+        
+        Cov = np.linalg.inv(self.fisher)
         #!not sure about the format of data
         #Here only need those parameters data
         
