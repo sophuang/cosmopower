@@ -319,7 +319,7 @@ class tf_planck2018_lite_posterior:
                             tf.transpose(tf.subtract(delta_p, delta_bar)))
         #the matrix product inside the summation of Sigma
 
-        scal = (1/(np.size(self)-1))
+        scal = (1/(np.size(self.X_data)-1))
         #coefficient before the summation of Sigma
 
         Sigma = tf.scalar_mul(scal, tf.reduce_sum(Sig_pro,0))
