@@ -321,7 +321,8 @@ class tf_planck2018_lite_posterior:
         #Here only need those parameters data
         
         diff = tf.subtract(delta_p, tf.transpose(delta_bar))
-        Sig_pro = tf.matmul(diff, tf.transpose(diff))
+        #Sig_pro = tf.matmul(diff,tf.transpose(diff))
+        Sig_pro = tf.matmul(tf.transpose(diff),diff)
         #the matrix product inside the summation of Sigma
         
 
@@ -329,8 +330,7 @@ class tf_planck2018_lite_posterior:
         #coefficient before the summation of Sigma
        
 
-        #Sigma = tf.scalar_mul(scal, tf.reduce_sum(Sig_pro,0))
-        Sigma = tf.scalar_mul(tf.reduce_sum(Sig_pro,0),scal)
+        Sigma = tf.scalar_mul(scal, tf.reduce_sum(Sig_pro,0))
         #(eq.5)
         #Sigma. !not sure about the dimenstion and the correct function to 
         # calculate the sum
