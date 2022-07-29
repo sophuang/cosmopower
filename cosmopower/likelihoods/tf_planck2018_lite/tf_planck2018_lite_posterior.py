@@ -329,7 +329,8 @@ class tf_planck2018_lite_posterior:
         #coefficient before the summation of Sigma
        
 
-        Sigma = tf.scalar_mul(scal, tf.reduce_sum(Sig_pro,0))
+        #Sigma = tf.scalar_mul(scal, tf.reduce_sum(Sig_pro,0))
+        Sigma = tf.scalar_mul(tf.reduce_sum(Sig_pro,0),scal)
         #(eq.5)
         #Sigma. !not sure about the dimenstion and the correct function to 
         # calculate the sum
