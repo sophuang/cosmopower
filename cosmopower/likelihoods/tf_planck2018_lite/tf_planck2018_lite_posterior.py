@@ -309,7 +309,7 @@ class tf_planck2018_lite_posterior:
         #the difference between the data and the mean of the likelihood
         
 
-        delta_bar = tf.reduce_mean(delta_p，axis=0)
+        delta_bar = tf.reduce_mean(delta_p,axis=0)
         #(eq.4)
         #!not sure about the dimesion, so not sure about the correct function to 
         # calculate the mean
