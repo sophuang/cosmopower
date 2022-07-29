@@ -337,14 +337,14 @@ class tf_planck2018_lite_posterior:
         
         
         #get the shape of variables
-        print(tf.shape(X_model))
-        print(mu_p.shape)
-        print(tf.shape(delta_p))
-        print(tf.shape(Xi_p))
-        print(tf.shape(delta_bar))
+        print(np.shape(X_model))
+        print(np.shape(mu_p))
+        print(np.shape(delta_p))
+        print(np.shape(Xi_p))
+        print(np.shape(delta_bar))
         print(np.shape(Cov))
-        print(tf.shape(Sig_pro))
-        print(tf.shape(Sigma))
+        print(np.shape(Sig_pro))
+        print(np.shape(Sigma))
 
 
         Psi = tf.transpose(tf.add(Cov, Sigma))
