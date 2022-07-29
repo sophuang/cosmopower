@@ -297,39 +297,48 @@ class tf_planck2018_lite_posterior:
 
         mu_p = np.mean(self.X_data)
         #the original mean of the likelihood
+        print(np.shape(mu_p))
 
         delta_p = tf.subtract(mu_p, X_model)
         #the discrepancy between the neural net prediction 
         #and the original mean of the likelihood
+        print(tf.size(delta_p))
 
         Xi_p = tf.subtract(self.X_data, mu_p)
         #the difference between the data and the mean of the likelihood
+        print(tf.size(Xi_p))
 
         delta_bar = tf.reduce_mean(delta_p)
         #(eq.4)
         #!not sure about the dimesion, so not sure about the correct function to 
         # calculate the mean
+        print(tf.size(delta_bar))
 
         
         Cov = np.linalg.inv(self.fisher)
         #!not sure about the format of data
         #Here only need those parameters data
+        print(np.shape(Cov))
         
         Sig_pro = tf.matmul(tf.subtract(delta_p, delta_bar),
                             tf.transpose(tf.subtract(delta_p, delta_bar)))
         #the matrix product inside the summation of Sigma
+        print(tf.size(Sig_pro))
 
         scal = (1/(np.size(self.X_data)-1))
         #coefficient before the summation of Sigma
+       
 
         Sigma = tf.scalar_mul(scal, tf.reduce_sum(Sig_pro,0))
         #(eq.5)
         #Sigma. !not sure about the dimenstion and the correct function to 
         # calculate the sum
+         print(tf.size(Sigma))
 
 
         Psi = tf.transpose(tf.add(Cov, Sigma))
         #(eq.8)
+        
 
         diff = tf.subtract(Xi_p, delta_bar)
         chi2 = tf.matmul(Psi, tf.transpose(diff))
