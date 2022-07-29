@@ -333,7 +333,7 @@ class tf_planck2018_lite_posterior:
         #(eq.5)
         #Sigma. !not sure about the dimenstion and the correct function to 
         # calculate the sum
-         print(tf.size(Sigma))
+        print(tf.size(Sigma))
 
 
         Psi = tf.transpose(tf.add(Cov, Sigma))
