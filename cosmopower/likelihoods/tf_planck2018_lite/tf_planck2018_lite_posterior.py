@@ -320,9 +320,8 @@ class tf_planck2018_lite_posterior:
         #!not sure about the format of data
         #Here only need those parameters data
         
-        
-        Sig_pro = tf.matmul(tf.subtract(delta_p, delta_bar),
-                            tf.transpose(tf.subtract(delta_p, delta_bar)))
+        diff = tf.subtract(delta_p, tf.transpose(delta_bar))
+        Sig_pro = tf.matmul(diff, tf.transpose(diff))
         #the matrix product inside the summation of Sigma
         
 
