@@ -305,7 +305,7 @@ class tf_planck2018_lite_posterior:
         #and the original mean of the likelihood
         
 
-        #Xi_p = tf.subtract(X_model,self.X_data)
+        Xi_p = tf.subtract(X_model,self.X_data)
         #the difference between the data and the mean of the likelihood
         
 
@@ -341,6 +341,7 @@ class tf_planck2018_lite_posterior:
         print(np.shape(self.X_data))
         #print(np.shape(mu_p))
         print(np.shape(delta_p))
+        print(np.shape(Xi_p))
         print(np.shape(delta_bar))
         print(np.shape(Cov))
         print(np.shape(dif))
