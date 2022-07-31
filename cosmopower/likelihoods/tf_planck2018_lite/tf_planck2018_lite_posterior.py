@@ -300,12 +300,12 @@ class tf_planck2018_lite_posterior:
         #the original mean of the likelihood
         
 
-        delta_p = tf.subtract(X_model,self.X_data)
+        delta_p = tf.transpose(tf.subtract(X_model,self.X_data))
         #the discrepancy between the neural net prediction 
         #and the original mean of the likelihood
         
 
-        Xi_p = tf.subtract(X_model,self.X_data)
+        #Xi_p = tf.subtract(X_model,self.X_data)
         #the difference between the data and the mean of the likelihood
         
 
@@ -320,8 +320,8 @@ class tf_planck2018_lite_posterior:
         #!not sure about the format of data
         #Here only need those parameters data
         
-        diff = tf.subtract(delta_p, tf.transpose(delta_bar))
-        Sig_pro = tf.matmul(diff,tf.transpose(diff))
+        dif = tf.subtract(delta_p, tf.transpose(delta_bar))
+        Sig_pro = tf.matmul(dif,tf.transpose(dif))
         
         #the matrix product inside the summation of Sigma
         
@@ -341,7 +341,6 @@ class tf_planck2018_lite_posterior:
         print(np.shape(self.X_data))
         #print(np.shape(mu_p))
         print(np.shape(delta_p))
-        print(np.shape(Xi_p))
         print(np.shape(delta_bar))
         print(np.shape(Cov))
         print(np.shape(diff))
