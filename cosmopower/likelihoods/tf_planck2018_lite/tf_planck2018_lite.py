@@ -297,7 +297,7 @@ class tf_planck2018_lite:
         diff_vec = tf.subtract(self.X_data, X_model)
         chi2 = tf.matmul(self.fisher, tf.transpose(diff_vec))
         chi2 = tf.matmul(diff_vec, chi2)
-        print(np.shape(chi2))
+        print(chi2)
         chi2 = tf.linalg.diag_part(chi2)
         loglkl = tf.scalar_mul(-0.5, chi2)
         loglkl = tf.reshape(loglkl, [parameters.shape[0], 1])
