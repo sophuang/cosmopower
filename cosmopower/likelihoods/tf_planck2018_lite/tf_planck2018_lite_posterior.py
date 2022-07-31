@@ -305,7 +305,7 @@ class tf_planck2018_lite_posterior:
         #and the original mean of the likelihood
         
 
-        Xi_p = tf.subtract(X_model,self.X_data)
+        Xi_p = tf.transpose(tf.subtract(X_model,self.X_data))
         #the difference between the data and the mean of the likelihood
         
 
@@ -353,7 +353,7 @@ class tf_planck2018_lite_posterior:
         #(eq.8)
         
 
-        diff = tf.subtract(Xi_p, delta_bar)
+        diff = tf.subtract(Xi_p, tf.transpose(delta_bar))
         chi2 = tf.matmul(Psi, tf.transpose(diff))
         chi2 = tf.matmul(diff, chi2)
 
