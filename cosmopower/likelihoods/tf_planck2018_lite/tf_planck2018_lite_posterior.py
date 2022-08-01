@@ -302,11 +302,11 @@ class tf_planck2018_lite_posterior:
 
         delta_p = tf.transpose(tf.subtract(self.X_data,X_model))
         #the discrepancy between the neural net prediction 
-        #and the original mean of the likelihood
+        #and the x data
         
 
         Xi_p = tf.transpose(tf.subtract(self.X_data,X_model))
-        #the difference between the data and the mean of the likelihood
+        #the difference between the data and the data
         
 
         delta_bar = tf.reduce_mean(delta_p,axis=0)
@@ -337,16 +337,16 @@ class tf_planck2018_lite_posterior:
         
         
         #get the shape of variables
-        #print(np.shape(X_model))
-        #print(np.shape(self.X_data))
-        #print(np.shape(mu_p))
-        #print(np.shape(delta_p))
-        #print(np.shape(Xi_p))
-        #print(np.shape(delta_bar))
-        #print(np.shape(Cov))
-        #print(np.shape(dif))
-        #print(np.shape(Sig_pro))
-        #print(np.shape(Sigma))
+        print(np.shape(X_model))
+        print(np.shape(self.X_data))
+        print(np.shape(mu_p))
+        print(np.shape(delta_p))
+        print(np.shape(Xi_p))
+        print(np.shape(delta_bar))
+        print(np.shape(Cov))
+        print(np.shape(dif))
+        print(np.shape(Sig_pro))
+        print(np.shape(Sigma))
 
 
         Psi = tf.transpose(tf.add(Cov, Sigma))
