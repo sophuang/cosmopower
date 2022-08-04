@@ -289,7 +289,8 @@ class tf_planck2018_lite_posterior:
         tf.transpose( \
         tf.math.multiply(tf.gather(Cl, self.indices, axis=1), self.window_tile)), \
         self.indices_rep)
-
+        print(np.shape(Cl_bin))
+        print(Cl_bin)
         # final theory prediction
         X_model = tf.transpose(tf.divide(Cl_bin, tf.square(cal)))
         
