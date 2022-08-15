@@ -285,12 +285,16 @@ class tf_planck2018_lite_posterior:
         self.window_tile = tf.tile(self.window_ttteee, [parameters.shape[0], 1])
 
         # binning C_ells
-        Cl_bin = tf.math.segment_sum( \
-        tf.transpose( \
+        
+        #tf.math.segment_sum( \
+        #tf.transpose( \
+        
+        Cl_bin = 
+        
         tf.math.multiply(tf.gather(Cl, self.indices, axis=1), self.window_tile)), \
         self.indices_rep)
         print(np.shape(Cl_bin))
-        print(Cl_bin)
+        
         # final theory prediction
         X_model = tf.transpose(tf.divide(Cl_bin, tf.square(cal)))
         
