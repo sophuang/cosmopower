@@ -279,6 +279,7 @@ class tf_planck2018_lite:
 
         # units of measure
         Cl = tf.scalar_mul(self.units_factor, tf.concat([Cltt, Clte, Clee], axis=1))
+        print(np.shape(Cl))
 
         # window function: batches
         self.window_ttteee = tf.concat([self.windowtt, self.windowte, self.windowee], axis=1)
@@ -289,6 +290,7 @@ class tf_planck2018_lite:
         tf.transpose( \
         tf.math.multiply(tf.gather(Cl, self.indices, axis=1), self.window_tile)), \
         self.indices_rep)
+        print(np.shape(Cl_bin))
 
         # final theory prediction
         X_model = tf.transpose(tf.divide(Cl_bin, tf.square(cal)))
