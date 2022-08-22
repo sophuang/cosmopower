@@ -289,7 +289,11 @@ class tf_planck2018_lite_posterior:
         
 
         
-        Cl_bin = tf.math.multiply(tf.gather(Cl, self.indices, axis=1), self.window_tile)
+        Cl_bin = tf.math.segment_sum( \
+        tf.transpose( \
+        tf.math.multiply(tf.gather(Cl, self.indices, axis=1), self.window_tile)), \
+        self.indices_rep)
+        
         print(np.shape(Cl_bin))
         
         # final theory prediction
