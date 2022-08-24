@@ -254,7 +254,7 @@ class tf_planck2018_lite_posterior:
         return parameters_table
 
 
-    @tf.function
+    #@tf.function
     def get_loglkl(self, parameters):
         """
         Compute log-likelihood
