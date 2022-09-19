@@ -279,10 +279,9 @@ class tf_planck2018_lite_posterior:
 
         # units of measure
         Cl = tf.scalar_mul(self.units_factor, tf.concat([Cltt, Clte, Clee], axis=1))
-        result1 = tf.shape(Cl)
-        print(result1)
-        result2 = shape(Cl)
-        print(result2)
+        result1 = Cl.get_shape()
+        print('Cl',result1)
+        
 
         # window function: batches
         self.window_ttteee = tf.concat([self.windowtt, self.windowte, self.windowee], axis=1)
