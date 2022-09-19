@@ -279,7 +279,7 @@ class tf_planck2018_lite_posterior:
 
         # units of measure
         Cl = tf.scalar_mul(self.units_factor, tf.concat([Cltt, Clte, Clee], axis=1))
-        result1 = Cl.get_shape()
+        result1 = Cl.shape()
         print('Cl',result1)
         
 
@@ -297,7 +297,7 @@ class tf_planck2018_lite_posterior:
         self.indices_rep)
         
         
-        result2 = Cl_bin.get_shape()
+        result2 = Cl_bin.shape()
         print('Cl_bin',result2)
         
         # final theory prediction
