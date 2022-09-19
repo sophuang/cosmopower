@@ -297,7 +297,8 @@ class tf_planck2018_lite_posterior:
         self.indices_rep)
         
         
-        print(np.shape(Cl_bin))
+        result2 = Cl_bin.get_shape()
+        print('Cl_bin',result2)
         
         # final theory prediction
         X_model = tf.transpose(tf.divide(Cl_bin, tf.square(cal)))
